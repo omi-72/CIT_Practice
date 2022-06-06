@@ -18,8 +18,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
 
+    }
+    private void runTimeperm(){
 
         Dexter.withActivity(this)
                 .withPermission(Manifest.permission.CAMERA)
@@ -42,5 +43,9 @@ public class MainActivity extends AppCompatActivity {
                         token.continuePermissionRequest();
                     }
 
+                }
     }
+
+    }
+
 }
