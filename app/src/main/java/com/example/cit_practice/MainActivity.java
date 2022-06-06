@@ -74,6 +74,12 @@ public class MainActivity extends AppCompatActivity {
                 String name = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DISPLAY_NAME));
                 Uri audioUri = ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,id);
 
+                if (cursor.isLast()){
+                    break;
+                } else {
+                    cursor.moveToNext();
+                }
+
 
             }
 
