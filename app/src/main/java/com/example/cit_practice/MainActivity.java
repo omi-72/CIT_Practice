@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void runTimeperm(){
 
-        Dexter.withActivity(this)
+        Dexter.withContext(this)
                 .withPermission(Manifest.permission.CAMERA)
                 .withListener(new PermissionListener() {
                     @Override
