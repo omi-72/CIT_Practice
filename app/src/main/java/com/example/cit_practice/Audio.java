@@ -27,4 +27,12 @@ public class Audio {
     public void setAudioUri(Uri audioUri) {
         this.audioUri = audioUri;
     }
+
+    @Override
+    public String toString() {
+        return "Audio{" +
+                "name='" + name + '\'' +
+                ", audioUri=" + audioUri +
+                '}';
+    }
 }
