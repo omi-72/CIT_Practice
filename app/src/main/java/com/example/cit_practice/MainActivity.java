@@ -65,7 +65,9 @@ public class MainActivity extends AppCompatActivity {
         Uri contentUri =MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
         Cursor cursor = getContentResolver().query(contentUri, projection,null,null,null);
 
-    
+        if (cursor != null){
+            cursor.moveToPosition()
+        }
 
     }
 
