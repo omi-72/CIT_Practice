@@ -3,6 +3,8 @@ package com.example.cit_practice;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.widget.Toast;
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                         token.continuePermissionRequest();
                     }
 
-                }
+                }).check();
     }
 
     private void getData() {
@@ -60,6 +62,11 @@ public class MainActivity extends AppCompatActivity {
                 MediaStore.Audio.Media.DISPLAY_NAME
 
         };
+        Uri contentUri =MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+        Cursor cursor = getContentResolver().query(contentUri, projection,null,null,null);
+
+    
+
     }
 
 }
