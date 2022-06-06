@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.widget.Toast;
 
 import com.karumi.dexter.Dexter;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onPermissionGranted(PermissionGrantedResponse response) {
                         // permission is granted, open the camera
                         Toast.makeText(MainActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+                        getData();
                     }
 
                     @Override
@@ -49,6 +51,17 @@ public class MainActivity extends AppCompatActivity {
                 }
     }
 
+    private void getData() {
+        String [] projection = new String[]{
+                MediaStore.Audio.Media._ID,
+                MediaStore.Audio.Media.SIZE,
+                MediaStore.Audio.Media.DATE_MODIFIED,
+                MediaStore.Audio.Media.BUCKET_DISPLAY_NAME,
+                MediaStore.Audio.Media.DISPLAY_NAME
+
+        };
     }
+
+}
 
 }
