@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
@@ -24,18 +25,19 @@ public class MainActivity extends AppCompatActivity {
     private void runTimeperm(){
 
         Dexter.withContext(this)
-                .withPermission(Manifest.permission.CAMERA)
+                .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
                 .withListener(new PermissionListener() {
                     @Override
                     public void onPermissionGranted(PermissionGrantedResponse response) {
                         // permission is granted, open the camera
+                        Toast.makeText(MainActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onPermissionDenied(PermissionDeniedResponse response) {
                         // check for permanent denial of permission
                         if (response.isPermanentlyDenied()) {
-                            // navigate user to app settings
+                            Toast.makeText(MainActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
                         }
                     }
 
