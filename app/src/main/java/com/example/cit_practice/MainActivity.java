@@ -3,6 +3,7 @@ package com.example.cit_practice;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.content.ContentUris;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -66,7 +67,16 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursor = getContentResolver().query(contentUri, projection,null,null,null);
 
         if (cursor != null){
-            cursor.moveToPosition()
+            cursor.moveToPosition(0);
+
+            while (true){
+                long id =cursor.getLong(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media._ID));
+                String name = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DISPLAY_NAME));
+                Uri audioUri = ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,id);
+
+
+            }
+
         }
 
     }
